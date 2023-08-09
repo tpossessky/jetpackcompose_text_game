@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LogisticsCompanycompose</string>
+    <string name="invalid_company_no_title">Title of Company Cannot Be Blank</string>
+    <string name="invalid_company_no_owner_name">Owner Name Cannot Be Empty</string>
+</resources>
