@@ -9,9 +9,9 @@ interface LogisticsCompanyRepositoryInterface {
 
     suspend fun getCompanyById(id: Int) : LogisticsCompany?
 
-    suspend fun insertCompany(company : LogisticsCompany)
+    suspend fun insertCompany(company : LogisticsCompany) : Long
 
-    suspend fun deleteCompany(company: LogisticsCompany)
+    suspend fun deleteCompanyByID(id: Int)
 
     suspend fun updateCompany(company: LogisticsCompany)
 

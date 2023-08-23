@@ -4,8 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class LogisticsCompany(
-    @PrimaryKey(autoGenerate = true) val id : Int,
+data class LogisticsCompany (
+    @PrimaryKey(autoGenerate = true) val id : Int = 0,
     val companyName : String,
     val userName : String,
     val cash : String,
@@ -14,4 +14,7 @@ data class LogisticsCompany(
     val dateCreated: Long = System.currentTimeMillis()
 )
 
-class InvalidCompanyException(message: String) : Exception(message)
+open class InvalidCompanyException(message: String) : Exception(message)
+
+class InvalidCompanyNameException(message: String) : InvalidCompanyException(message)
+class InvalidOwnerNameException(message: String) : InvalidCompanyException(message)

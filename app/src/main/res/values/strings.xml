@@ -1,5 +1,21 @@
 <resources>
-    <string name="app_name">LogisticsCompanycompose</string>
+    <string name="app_name">Logistics Company Simulator</string>
+
     <string name="invalid_company_no_title">Title of Company Cannot Be Blank</string>
     <string name="invalid_company_no_owner_name">Owner Name Cannot Be Empty</string>
+
+    <string name="title_contracts">Contracts</string>
+    <string name="title_vehicles">Vehicles</string>
+    <string name="title_home">Home</string>
+    <string name="title_facilities">Facilities</string>
+    <string name="title_profile">Profile</string>
+
+    <string name="home_route">route_home</string>
+    <string name="profile_route">route_profile</string>
+    <string name="facilities_route">route_facilities</string>
+    <string name="vehicles_route">route_vehicles</string>
+    <string name="test_route">route_test</string>
+    <string name="title_activity_start">StartActivity</string>
+
+
 </resources>

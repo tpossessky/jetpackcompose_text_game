@@ -6,9 +6,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class GetAllCompanies(
-    private val repository : LogisticsCompanyRepository
-){
-    operator fun invoke() : Flow<List<LogisticsCompany>> {
+    private val repository: LogisticsCompanyRepository
+) {
+    operator fun invoke(): Flow<List<LogisticsCompany>> {
 
         //return companies in order by most recently created
         return repository.getCompanies().map { companies ->

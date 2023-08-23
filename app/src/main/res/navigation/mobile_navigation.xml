@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_game_management">
+
+    <fragment
+        tools:layout="@layout/fragment_game_management"
+        android:id="@+id/navigation_game_management"
+        android:name="com.game.logisticscompanycompose.main.fragments.game_management.GameManagementFragment"
+        android:label="GameManagementFragment" />
+</navigation>

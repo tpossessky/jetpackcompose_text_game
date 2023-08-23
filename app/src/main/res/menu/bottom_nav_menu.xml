@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <item-->
+<!--        android:id="@+id/navigation_contracts"-->
+<!--        android:icon="@drawable/navigation_contract_24"-->
+<!--        android:title="@string/title_contracts" />-->
+<!--    <item-->
+<!--        android:id="@+id/navigation_vehicles"-->
+<!--        android:icon="@drawable/vehicle_box_truck_24"-->
+<!--        android:title="@string/title_vehicles" />-->
+    <item
+        android:id="@+id/navigation_game_management"
+        android:icon="@drawable/navigation_home_24"
+        android:title="@string/title_home" />
+<!--    <item-->
+<!--        android:id="@+id/navigation_facilities"-->
+<!--        android:icon="@drawable/navigation_facility_24"-->
+<!--        android:title="@string/title_facilities" />-->
+
+<!--    <item-->
+<!--        android:id="@+id/navigation_profile"-->
+<!--        android:icon="@drawable/navigation_profile_24"-->
+<!--        android:title="@string/title_profile"/>-->
+
+</menu>

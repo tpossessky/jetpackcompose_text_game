@@ -4,11 +4,12 @@ import com.game.logisticscompanycompose.feature_game_management.data.data_source
 import com.game.logisticscompanycompose.feature_game_management.domain.model.LogisticsCompany
 import com.game.logisticscompanycompose.feature_game_management.domain.repository.LogisticsCompanyRepositoryInterface
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 
-class LogisticsCompanyRepository(
-    private val dao : LogisticsCompanyDao
-) : LogisticsCompanyRepositoryInterface{
+class LogisticsCompanyRepository @Inject constructor(
+    private val dao: LogisticsCompanyDao
+) : LogisticsCompanyRepositoryInterface {
 
     override fun getCompanies(): Flow<List<LogisticsCompany>> {
         return dao.getAllCompanies()
@@ -18,12 +19,12 @@ class LogisticsCompanyRepository(
         return dao.getCompany(id)
     }
 
-    override suspend fun insertCompany(company: LogisticsCompany) {
-        dao.insertCompany(company)
+    override suspend fun insertCompany(company: LogisticsCompany) : Long {
+        return dao.insertCompany(company)
     }
 
-    override suspend fun deleteCompany(company: LogisticsCompany) {
-        dao.deleteCompany(company)
+    override suspend fun deleteCompanyByID(id: Int) {
+        dao.deleteCompanyById(id)
     }
 
     override suspend fun updateCompany(company: LogisticsCompany) {
