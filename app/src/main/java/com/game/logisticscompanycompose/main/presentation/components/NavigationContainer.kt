@@ -1,8 +1,10 @@
-package com.game.logisticscompanycompose.main.components
+package com.game.logisticscompanycompose.main.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -11,7 +13,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
@@ -26,8 +27,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.game.logisticscompanycompose.feature_profile.presentation.components.UserProfileScreen
-import com.game.logisticscompanycompose.main.navigation.BottomNavigationItem
-import com.game.logisticscompanycompose.main.viewmodels.NavigationContainerViewModel
+import com.game.logisticscompanycompose.feature_vehicles.presentation.screens.VehicleScreen
+import com.game.logisticscompanycompose.main.presentation.navigation.BottomNavigationItem
+import com.game.logisticscompanycompose.main.presentation.viewmodels.NavigationContainerViewModel
+import com.game.logisticscompanycompose.utils.GenericUtils
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -43,21 +46,29 @@ fun NavigationContainer(
     val coroutineScope = rememberCoroutineScope()
 
     val company by viewModel.companyData.collectAsState()
-
-    LaunchedEffect(key1 = companyId) {
-        // Get the company by ID.
-        viewModel.getCompanyById(companyId)
-    }
+    viewModel.setCompanyIdAndObserve(companyId)
 
     if (company != null) {
         Scaffold(
             topBar = {
                 TopAppBar(
                     title = {
-                        Text(
-                            text = company!!.companyName,
-                            style = TextStyle(color = Color.White, fontWeight = FontWeight.Black)
-                        )},
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                text = company!!.companyName,
+                                style = TextStyle(color = Color.White, fontWeight = FontWeight.Black)
+                            )
+                            Text(
+                                text = GenericUtils.formatCash(company!!.cash),
+                                style = TextStyle(color = Color.White, fontWeight = FontWeight.Black)
+                            )
+                            //TODO: UPDATE ANIMATED CASH COMPONENT
+                            //AnimatedCashText(count = company!!.cash.toBigInteger())
+                        }
+                    },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = Color.Blue
                     )
@@ -80,13 +91,21 @@ fun NavigationContainer(
                     Text(text = "Home Content", modifier = Modifier.padding(innerPadding))
                 }
                 composable(BottomNavigationItem.Profile.route) {
-                    UserProfileScreen(modifier = Modifier.padding(innerPadding))
+                    UserProfileScreen(
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
                 composable(BottomNavigationItem.Facilities.route) {
-                    Text(text = "Facilities Content", modifier = Modifier.padding(innerPadding))
+                    Text(
+                        text = "Facilities Content",
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
                 composable(BottomNavigationItem.Vehicles.route) {
-                    Text(text = "Vehicles Content", modifier = Modifier.padding(innerPadding))
+                    VehicleScreen(
+                        company = company!!,
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
                 composable(BottomNavigationItem.Test.route) {
                     Text(text = "Test Content", modifier = Modifier.padding(innerPadding))

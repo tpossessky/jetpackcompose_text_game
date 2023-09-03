@@ -1,4 +1,4 @@
-package com.game.logisticscompanycompose.main.components
+package com.game.logisticscompanycompose.main.presentation.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -8,7 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.game.logisticscompanycompose.feature_game_management.presentation.screens.LoadGameScreen
 import com.game.logisticscompanycompose.feature_game_management.presentation.screens.StartScreen
 import com.game.logisticscompanycompose.feature_game_management.presentation.screens.TutorialScreen
-import com.game.logisticscompanycompose.main.navigation.StartScreenNavigationItem
+import com.game.logisticscompanycompose.main.presentation.navigation.StartScreenNavigationItem
 
 @Composable
 fun StartScreenContainer(

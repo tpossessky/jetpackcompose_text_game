@@ -1,11 +1,10 @@
-package com.game.logisticscompanycompose.main.activities
+package com.game.logisticscompanycompose.main.presentation.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.game.logisticscompanycompose.main.components.NavigationContainer
+import com.game.logisticscompanycompose.main.presentation.components.NavigationContainer
 import com.game.logisticscompanycompose.ui.theme.LogisticsCompanyTheme
 import com.game.logisticscompanycompose.utils.GameConstants
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,7 +24,6 @@ class MainActivity : ComponentActivity() {
             startActivity(Intent(this, StartActivity::class.java))
 
 
-        Log.wtf("MAIN", "ID: $currentCompanyID")
         setContent {
             LogisticsCompanyTheme {
                 NavigationContainer(

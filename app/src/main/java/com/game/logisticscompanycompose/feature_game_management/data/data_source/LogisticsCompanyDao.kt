@@ -14,16 +14,24 @@ interface LogisticsCompanyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCompany(company: LogisticsCompany) : Long
 
-    @Update
-    suspend fun updateCompany(company: LogisticsCompany)
 
     @Query("DELETE FROM logisticscompany WHERE id = :companyId")
     suspend fun deleteCompanyById(companyId: Int)
+
 
     @Query("SELECT * FROM logisticscompany")
     fun getAllCompanies(): Flow<List<LogisticsCompany>>
 
     @Query("SELECT * FROM logisticscompany WHERE id = :companyID")
-    fun getCompany(companyID: Int): LogisticsCompany?
+    suspend fun getCompany(companyID: Int): LogisticsCompany?
 
+    @Query("SELECT * FROM logisticscompany WHERE id = :companyID")
+    fun getCompanyFlow(companyID: Int): Flow<LogisticsCompany?>
+
+
+    @Update
+    suspend fun updateCompany(company: LogisticsCompany)
+
+    @Query("UPDATE logisticscompany SET cash = :cash WHERE id = :id")
+    suspend fun updateCash(cash : String, id : Int)
 }

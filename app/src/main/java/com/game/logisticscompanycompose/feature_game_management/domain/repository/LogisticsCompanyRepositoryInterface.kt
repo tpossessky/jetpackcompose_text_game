@@ -15,4 +15,6 @@ interface LogisticsCompanyRepositoryInterface {
 
     suspend fun updateCompany(company: LogisticsCompany)
 
+    suspend fun updateCash(id: Int, amt: String)
+    fun observeCompanyByIdFlow(id: Int): Flow<LogisticsCompany?>
 }

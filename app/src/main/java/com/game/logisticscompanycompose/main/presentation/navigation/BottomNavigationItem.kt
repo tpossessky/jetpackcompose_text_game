@@ -1,4 +1,4 @@
-package com.game.logisticscompanycompose.main.navigation
+package com.game.logisticscompanycompose.main.presentation.navigation
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons

@@ -8,7 +8,7 @@ data class LogisticsCompany (
     @PrimaryKey(autoGenerate = true) val id : Int = 0,
     val companyName : String,
     val userName : String,
-    val cash : String,
+    var cash : String,
     val xp : Int = 0,
     val level : Int = 0,
     val dateCreated: Long = System.currentTimeMillis()

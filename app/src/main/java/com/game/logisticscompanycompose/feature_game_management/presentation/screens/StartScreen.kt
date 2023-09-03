@@ -29,7 +29,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.game.logisticscompanycompose.feature_game_management.presentation.components.CreateGameDialog
 import com.game.logisticscompanycompose.feature_game_management.presentation.view_models.StartScreenViewModel
-import com.game.logisticscompanycompose.main.navigation.StartScreenNavigationItem
+import com.game.logisticscompanycompose.main.presentation.navigation.StartScreenNavigationItem
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable

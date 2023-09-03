@@ -14,7 +14,7 @@
         android:theme="@style/Theme.LogisticsCompanycompose"
         tools:targetApi="31">
         <activity
-            android:name=".main.activities.StartActivity"
+            android:name=".main.presentation.activities.StartActivity"
             android:exported="true"
             android:label="@string/title_activity_start"
             android:theme="@style/Theme.LogisticsCompanycompose">
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.activities.MainActivity"
+            android:name=".main.presentation.activities.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.LogisticsCompanycompose">

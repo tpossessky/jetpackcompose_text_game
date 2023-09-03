@@ -9,7 +9,7 @@ class GetAllVehiclesByCompanyId(
     private val repository: VehicleRepository
 ) {
 
-    suspend operator fun invoke(id: Int) : Flow<List<Vehicle>> {
+    operator fun invoke(id: Int) : Flow<List<Vehicle>> {
         return repository.getAllVehiclesByCompanyId(id).map { vehicles ->
             vehicles.sortedBy { it.vehicleType }
         }

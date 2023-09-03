@@ -1,11 +1,10 @@
-package com.game.logisticscompanycompose.main.activities
+package com.game.logisticscompanycompose.main.presentation.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.game.logisticscompanycompose.main.components.StartScreenContainer
+import com.game.logisticscompanycompose.main.presentation.components.StartScreenContainer
 import com.game.logisticscompanycompose.ui.theme.LogisticsCompanyTheme
 import com.game.logisticscompanycompose.utils.GameConstants
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,7 +16,6 @@ class StartActivity : ComponentActivity() {
         setContent {
             LogisticsCompanyTheme {
                 StartScreenContainer{ companyID ->
-                    Log.wtf("ACTIVITY", "ID: $companyID" )
                     val intent = Intent(this, MainActivity::class.java).apply{
                         putExtra(GameConstants.EXTRA_FROM_START_TO_MAIN, companyID)
                     }

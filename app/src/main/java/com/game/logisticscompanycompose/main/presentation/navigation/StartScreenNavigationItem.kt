@@ -1,4 +1,4 @@
-package com.game.logisticscompanycompose.main.navigation
+package com.game.logisticscompanycompose.main.presentation.navigation
 
 sealed class StartScreenNavigationItem (val route : String) {
     object StartScreen : StartScreenNavigationItem("start_screen_route")

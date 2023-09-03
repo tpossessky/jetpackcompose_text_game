@@ -5,7 +5,7 @@ import androidx.datastore.preferences.core.intPreferencesKey
 
 
 object GameConstants {
-    val createCompanyStartingCashOptions = listOf("5000", "10000", "20000")
+    val createCompanyStartingCashOptions = listOf("5000", "10000", "15000")
 
     //DataStore names
     const val DATASTORE_SETTINGS_FILE = "user_settings"

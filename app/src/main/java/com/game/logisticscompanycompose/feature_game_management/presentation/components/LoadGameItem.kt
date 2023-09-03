@@ -82,6 +82,12 @@ fun LoadGameItem(
                 color = Color.White
             )
             Text(
+                text = GenericUtils.formatCash(company.cash),
+                fontWeight = FontWeight.Bold,
+                fontSize = 15.sp,
+                color = Color.White
+            )
+            Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = GenericUtils.convertMillisecondsToDateString(company.dateCreated),
                 textAlign = TextAlign.End,

@@ -1,4 +1,4 @@
-package com.game.logisticscompanycompose.main.components
+package com.game.logisticscompanycompose.main.presentation.components
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.material3.BottomAppBar
@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
-import com.game.logisticscompanycompose.main.navigation.BottomNavigationItem
+import com.game.logisticscompanycompose.main.presentation.navigation.BottomNavigationItem
 
 @Composable
 fun BottomNavigationBar(

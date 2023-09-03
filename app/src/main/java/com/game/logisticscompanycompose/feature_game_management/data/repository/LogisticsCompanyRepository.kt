@@ -1,5 +1,6 @@
 package com.game.logisticscompanycompose.feature_game_management.data.repository
 
+import android.util.Log
 import com.game.logisticscompanycompose.feature_game_management.data.data_source.LogisticsCompanyDao
 import com.game.logisticscompanycompose.feature_game_management.domain.model.LogisticsCompany
 import com.game.logisticscompanycompose.feature_game_management.domain.repository.LogisticsCompanyRepositoryInterface
@@ -19,6 +20,10 @@ class LogisticsCompanyRepository @Inject constructor(
         return dao.getCompany(id)
     }
 
+    override fun observeCompanyByIdFlow(id: Int): Flow<LogisticsCompany?> {
+        return dao.getCompanyFlow(id)
+    }
+
     override suspend fun insertCompany(company: LogisticsCompany) : Long {
         return dao.insertCompany(company)
     }
@@ -29,5 +34,10 @@ class LogisticsCompanyRepository @Inject constructor(
 
     override suspend fun updateCompany(company: LogisticsCompany) {
         dao.updateCompany(company)
+    }
+
+    override suspend fun updateCash(id: Int, amt: String){
+        Log.wtf("REPO", "UPDATING COMPANY CASH WITH ID $id")
+        dao.updateCash(id= id, cash = amt)
     }
 }

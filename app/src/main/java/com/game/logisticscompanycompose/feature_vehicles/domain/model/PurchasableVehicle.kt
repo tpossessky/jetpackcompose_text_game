@@ -15,7 +15,7 @@ data class PurchasableVehicle(
 )
 
 
-object PurchasableVehiclesList {
+object PurchasableVehiclesCollection {
 
     val Van = PurchasableVehicle(
         vehicleType = VehicleType.VAN,
@@ -40,5 +40,9 @@ object PurchasableVehiclesList {
         purchasePrice = 12500,
         unlockLevel = 1
     )
+
+    val list = listOf(Van, DeluxeVan, PickupTruck, Truck).sortedBy {
+        it.purchasePrice
+    }
 
 }

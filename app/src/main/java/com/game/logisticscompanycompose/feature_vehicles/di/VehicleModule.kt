@@ -5,9 +5,11 @@ import androidx.room.Room
 import com.game.logisticscompanycompose.feature_vehicles.data.data_source.VehicleDao
 import com.game.logisticscompanycompose.feature_vehicles.data.data_source.VehicleDatabase
 import com.game.logisticscompanycompose.feature_vehicles.data.repository.VehicleRepository
+import com.game.logisticscompanycompose.feature_vehicles.domain.model.PurchasableVehiclesCollection
 import com.game.logisticscompanycompose.feature_vehicles.domain.repository.VehicleRepositoryInterface
 import com.game.logisticscompanycompose.feature_vehicles.domain.use_case.AddVehicle
 import com.game.logisticscompanycompose.feature_vehicles.domain.use_case.GetAllVehiclesByCompanyId
+import com.game.logisticscompanycompose.feature_vehicles.domain.use_case.SellVehicle
 import com.game.logisticscompanycompose.feature_vehicles.domain.use_case.VehicleUseCases
 import dagger.Module
 import dagger.Provides
@@ -53,8 +55,16 @@ object VehicleModule {
 
         return VehicleUseCases(
             addVehicle = AddVehicle(repository),
+            sellVehicle = SellVehicle(repository),
             getAllVehiclesByCompanyId = GetAllVehiclesByCompanyId(repository)
         )
+    }
+
+
+    @Provides
+    @Singleton
+    fun providePurchasableVehiclesCollection() : PurchasableVehiclesCollection {
+        return PurchasableVehiclesCollection
     }
 
 
