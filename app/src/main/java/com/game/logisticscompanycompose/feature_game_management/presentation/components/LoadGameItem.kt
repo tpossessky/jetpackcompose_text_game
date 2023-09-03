@@ -36,7 +36,7 @@ fun LoadGameItem(
     onClick: (event: GameManagementClickEvent) -> Unit
 ) {
     Button(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(15.dp)
             .bounceClick(),

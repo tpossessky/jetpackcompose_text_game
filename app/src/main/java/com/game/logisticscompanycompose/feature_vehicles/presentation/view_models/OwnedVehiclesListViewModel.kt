@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class OwnedVehiclesListViewModel @Inject constructor(
     val gameManagementUseCases: GameManagementUseCases,
-    val vehicleUseCases: VehicleUseCases,
+    private val vehicleUseCases: VehicleUseCases,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -34,6 +34,8 @@ class OwnedVehiclesListViewModel @Inject constructor(
         getVehicles()
     }
 
+
+    //TODO: Move pricing logic to domain level
     private fun getVehicles(){
         getVehiclesJob?.cancel()
         getVehiclesJob = vehicleUseCases.getAllVehiclesByCompanyId(id)
@@ -57,9 +59,16 @@ class OwnedVehiclesListViewModel @Inject constructor(
                 amountToBeAdded = "2000",
                 id = company.id
             )
-
-
         }
     }
 
+    //TODO: Add logic to do something with vehicle upgrades
+    fun upgradeVehicle(vehicle: Vehicle) {
+        viewModelScope.launch {
+            val total = vehicle.upgradeTotal
+            vehicle.upgradeTotal += 1
+
+            vehicleUseCases.updateVehicle(vehicle)
+        }
+    }
 }

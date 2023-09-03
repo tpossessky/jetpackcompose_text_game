@@ -63,7 +63,7 @@ fun VehicleItem(
                 )
             }
             Spacer(modifier = Modifier.height(8.dp))
-
+            //purchasable vehicle
             if (vehicle is PurchasableVehicle){
                 Row {
                     Text(
@@ -100,10 +100,21 @@ fun VehicleItem(
                     }
                 }
             }
+            //owned vehicle
             else {
                 Row {
                     Text(
                         text= vehicle.vehicleType,
+                        style = TextStyle(
+                            fontWeight = FontWeight.Black,
+                            color = Color.White
+                        )
+                    )
+                }
+                Spacer(modifier = Modifier.height(8.dp))
+                Row {
+                    Text(
+                        text= "Upgrades: ${vehicle.upgradeTotal}",
                         style = TextStyle(
                             fontWeight = FontWeight.Black,
                             color = Color.White
@@ -128,7 +139,7 @@ fun VehicleItem(
                 ) {
                     Button(
                         modifier = Modifier.bounceClick(),
-                        //purchase vehicle
+                        //sell vehicle
                         onClick = {
                             onClick(VehicleClickEvent.VehicleClickSell(vehicle))
                         },
@@ -138,6 +149,30 @@ fun VehicleItem(
                     ) {
                         Text(
                             text= "Sell",
+                            style = TextStyle(
+                                fontWeight = FontWeight.Black,
+                                color = Color.White
+                            )
+                        )
+                    }
+                }
+                Row (
+                    modifier = modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Button(
+                        modifier = Modifier.bounceClick(),
+                        //upgrade
+                        onClick = {
+                            onClick(VehicleClickEvent.VehicleClickUpgrade(vehicle))
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color.Gray
+                        )
+                    ) {
+                        Text(
+                            text= "Upgrade",
                             style = TextStyle(
                                 fontWeight = FontWeight.Black,
                                 color = Color.White

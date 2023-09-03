@@ -17,5 +17,28 @@
     <string name="test_route">route_test</string>
     <string name="title_activity_start">StartActivity</string>
 
+    <!--  Contract Companies  -->
+    <string name="blossom_bloom_florist"><![CDATA[Blossom & Bloom Florist]]></string>
+    <string name="techmaster_solutions">TechMaster Solutions</string>
+    <string name="golden_gate_coffee_co">Golden Gate Coffee Co.</string>
+    <string name="atlas_construction">Atlas Construction</string>
+    <string name="pacific_waves_surf_shop">Pacific Waves Surf Shop</string>
+    <string name="luna_s_baked_goods">Luna\'s Baked Goods</string>
+    <string name="stellar_designs">Stellar Designs</string>
+    <string name="velocity_auto_repair">Velocity Auto Repair</string>
+    <string name="oak_ivy_furniture"><![CDATA[Oak & Ivy Furniture]]></string>
+    <string name="evergreen_pet_care">Evergreen Pet Care</string>
+    <string name="fashion_house_boutique">Fashion House Boutique</string>
+    <string name="brew_haven_craft_beverages">Brew Haven Craft Beverages</string>
+    <string name="artisanal_delights">Artisanal Delights</string>
+    <string name="blissful_bites_catering">Blissful Bites Catering</string>
+    <string name="tech_hub_it_solutions">Tech Hub IT Solutions</string>
+    <string name="the_fitness_warehouse">The Fitness Warehouse</string>
+    <string name="whisk_and_whistle_bakery">Whisk and Whistle Bakery</string>
+    <string name="clear_skies_cleaning_supplies">Clear Skies Cleaning Supplies</string>
+    <string name="art_n_stuff_supply_co">Art \'n\' Stuff Supply Co.</string>
+    <string name="harvest_acres_farms">Harvest Acres Farms</string>
+    <string name="johnson_grocery">Johnson Grocery</string>
+
 
 </resources>

@@ -1,6 +1,7 @@
 package com.game.logisticscompanycompose.common.di
 
 import android.content.Context
+import com.game.logisticscompanycompose.utils.ContractIssuingCompaniesList
 import com.game.logisticscompanycompose.utils.resources.ResourceManager
 import com.game.logisticscompanycompose.utils.resources.ResourceManagerInterface
 import dagger.Module
@@ -19,6 +20,12 @@ object AppModule {
     @Singleton
     fun provideApplicationContext(@ApplicationContext context: Context): Context {
         return context
+    }
+
+    @Provides
+    @Singleton
+    fun provideContractIssuingCompanies(context: Context) : ContractIssuingCompaniesList {
+        return ContractIssuingCompaniesList(context)
     }
 
     @Provides

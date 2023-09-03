@@ -22,7 +22,6 @@ import com.game.logisticscompanycompose.utils.GameConstants
 fun CreateGameDialog(
     onConfirm: (company: LogisticsCompany) -> Unit,
     onDismissRequest: () -> Unit,
-    showDialog: Boolean = true,
     viewModel: CreateDialogViewModel = hiltViewModel(),
     errorType: InvalidCompanyException?
 ) {

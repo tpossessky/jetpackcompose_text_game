@@ -21,6 +21,9 @@ fun OwnedVehiclesList(
             VehicleItem(vehicle = vehicle){
                 if(it is VehicleClickEvent.VehicleClickSell)
                     viewModel.sellVehicle(vehicle)
+                else if(it is VehicleClickEvent.VehicleClickUpgrade){
+                    viewModel.upgradeVehicle(vehicle)
+                }
             }
         }
     }

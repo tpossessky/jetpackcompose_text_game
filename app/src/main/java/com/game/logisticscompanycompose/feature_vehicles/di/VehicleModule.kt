@@ -10,6 +10,7 @@ import com.game.logisticscompanycompose.feature_vehicles.domain.repository.Vehic
 import com.game.logisticscompanycompose.feature_vehicles.domain.use_case.AddVehicle
 import com.game.logisticscompanycompose.feature_vehicles.domain.use_case.GetAllVehiclesByCompanyId
 import com.game.logisticscompanycompose.feature_vehicles.domain.use_case.SellVehicle
+import com.game.logisticscompanycompose.feature_vehicles.domain.use_case.UpdateVehicle
 import com.game.logisticscompanycompose.feature_vehicles.domain.use_case.VehicleUseCases
 import dagger.Module
 import dagger.Provides
@@ -56,7 +57,8 @@ object VehicleModule {
         return VehicleUseCases(
             addVehicle = AddVehicle(repository),
             sellVehicle = SellVehicle(repository),
-            getAllVehiclesByCompanyId = GetAllVehiclesByCompanyId(repository)
+            getAllVehiclesByCompanyId = GetAllVehiclesByCompanyId(repository),
+            updateVehicle = UpdateVehicle(repository)
         )
     }
 

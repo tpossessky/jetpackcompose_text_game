@@ -17,5 +17,7 @@ sealed class VehicleClickEvent {
 
     data class VehicleClickBuy(val vehicle : PurchasableVehicle) : VehicleClickEvent()
     data class VehicleClickSell(val vehicle: Vehicle) : VehicleClickEvent()
+    data class VehicleClickUpgrade(val vehicle : Vehicle) : VehicleClickEvent()
+
 
 }

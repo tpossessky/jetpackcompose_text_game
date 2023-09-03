@@ -8,7 +8,7 @@ data class PurchasableVehicle(
     val unlockLevel: Int = 0
 ) : Vehicle(
     id = -1,
-    vehicleType= vehicleType,
+    vehicleType = vehicleType,
     upgradeTotal = 0,
     companyId = -1,
     currentlyUsedInContract = false
