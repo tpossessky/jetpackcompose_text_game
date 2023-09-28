@@ -12,10 +12,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ContractDao {
 
-    @Query("SELECT * FROM contract WHERE companyId = :companyId")
+    @Query("SELECT * FROM Contract WHERE companyId = :companyId")
     fun getAllContractsByCompanyID(companyId: Int) : Flow<List<Contract>>
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertContract(contract: Contract) : Long
 
     @Update

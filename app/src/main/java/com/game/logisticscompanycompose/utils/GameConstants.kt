@@ -21,11 +21,14 @@ object GameConstants {
     const val EXTRA_FROM_START_TO_MAIN = "company_extra"
 
 
-//    open class InvalidCompanyException(message: String) : Exception(message)
-//
-//    class InvalidCompanyNameException(message: String) : InvalidCompanyException(message)
-//    class InvalidOwnerNameException(message: String) : InvalidCompanyException(message)
+    enum class JOBCODE (val code : Int){
 
+        DispatchManager(0),
+        SalesRep(1),
+        ChiefMarketingOfficer(2),
+        ChiefFinancialOfficer(3),
+
+    }
 }
 
 object VehicleType {
@@ -33,6 +36,14 @@ object VehicleType {
     const val DELUXE_VAN = "Deluxe Van"
     const val TRUCK = "Truck"
     const val PICKUP_TRUCK = "Pickup Truck"
+}
+enum class JOBCODE (val code : Int){
+
+    DispatchManager(0),
+    SalesRep(1),
+    ChiefMarketingOfficer(2),
+    ChiefFinancialOfficer(3),
+
 }
 
 data class ContractIssuingCompany(

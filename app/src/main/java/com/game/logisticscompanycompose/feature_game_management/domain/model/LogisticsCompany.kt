@@ -10,7 +10,7 @@ data class LogisticsCompany (
     val userName : String,
     var cash : String,
     val xp : Int = 0,
-    val level : Int = 0,
+    val level : Int = 1,
     val dateCreated: Long = System.currentTimeMillis()
 )
 

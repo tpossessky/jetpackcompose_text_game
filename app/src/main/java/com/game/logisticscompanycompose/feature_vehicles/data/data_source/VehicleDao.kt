@@ -12,8 +12,6 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface VehicleDao {
 
-
-
     @Query("SELECT * FROM Vehicle WHERE companyId = :companyId")
     fun getAllVehiclesByCompanyID(companyId: Int) : Flow<List<Vehicle>>
 

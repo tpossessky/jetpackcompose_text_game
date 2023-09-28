@@ -26,6 +26,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.game.logisticscompanycompose.feature_contracts.presentation.screens.ContractContainer
 import com.game.logisticscompanycompose.feature_profile.presentation.components.UserProfileScreen
 import com.game.logisticscompanycompose.feature_vehicles.presentation.screens.VehicleScreen
 import com.game.logisticscompanycompose.main.presentation.navigation.BottomNavigationItem
@@ -42,7 +43,6 @@ fun NavigationContainer(
     val navController = rememberNavController()
     val backStackEntry = navController.currentBackStackEntryAsState()
     val bottomNavItems = BottomNavigationItem.getNavigationItems()
-
     val coroutineScope = rememberCoroutineScope()
 
     val company by viewModel.companyData.collectAsState()
@@ -108,7 +108,9 @@ fun NavigationContainer(
                     )
                 }
                 composable(BottomNavigationItem.Test.route) {
-                    Text(text = "Test Content", modifier = Modifier.padding(innerPadding))
+                    ContractContainer(company = company!!,
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
             }
         }

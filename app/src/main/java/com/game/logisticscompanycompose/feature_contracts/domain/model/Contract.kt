@@ -4,12 +4,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-class Contract (
-    @PrimaryKey(autoGenerate = true) val id : Int = 1,
-    val issuingCompany : String,
-    val lengthInWeeks : Int,
-    val weeksRemaining : Int,
-    val payPerWeek : Int,
+class Contract(
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val issuingCompany: String,
+    val lengthInWeeks: Int,
+    val weeksRemaining: Int,
+    val payPerWeek: Int,
     val packagesPerWeek: Int,
-    val companyId : Int,
+    val companyId: Int,
+    var vehicleId: Int
 )

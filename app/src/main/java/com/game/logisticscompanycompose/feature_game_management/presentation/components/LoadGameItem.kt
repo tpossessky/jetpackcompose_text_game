@@ -30,10 +30,11 @@ import com.game.logisticscompanycompose.utils.anim.bounceClick
 
 @Composable
 fun LoadGameItem(
-    company: LogisticsCompany,
+    company: () -> LogisticsCompany,
     modifier: Modifier = Modifier,
     color: Color,
-    onClick: (event: GameManagementClickEvent) -> Unit
+    onClick: (event: GameManagementClickEvent) -> Unit,
+
 ) {
     Button(
         modifier = modifier
@@ -45,7 +46,7 @@ fun LoadGameItem(
             pressedElevation = 8.dp
         ),
         colors = ButtonDefaults.buttonColors(containerColor = color),
-        onClick = {onClick(GameManagementClickEvent.GameManagementClickCompany(company.id))},
+        onClick = {onClick(GameManagementClickEvent.GameManagementClickCompany(company().id))},
         shape = RoundedCornerShape(16.dp),
         contentPadding = PaddingValues()
     ) {
@@ -59,13 +60,13 @@ fun LoadGameItem(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = company.companyName,
+                    text = company().companyName,
                     fontWeight = FontWeight.Black,
                     fontSize = 20.sp,
                     color = Color.White
                 )
                 IconButton(
-                    onClick = { onClick(GameManagementClickEvent.GameManagementClickDelete(company.id)) },
+                    onClick = { onClick(GameManagementClickEvent.GameManagementClickDelete(company().id)) },
                     modifier = Modifier.then(Modifier.size(32.dp))
                 ) {
                     Icon(
@@ -76,20 +77,20 @@ fun LoadGameItem(
                 }
             }
             Text(
-                text = company.userName,
+                text = company().userName,
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp,
                 color = Color.White
             )
             Text(
-                text = GenericUtils.formatCash(company.cash),
+                text = GenericUtils.formatCash(company().cash),
                 fontWeight = FontWeight.Bold,
                 fontSize = 15.sp,
                 color = Color.White
             )
             Text(
                 modifier = Modifier.fillMaxWidth(),
-                text = GenericUtils.convertMillisecondsToDateString(company.dateCreated),
+                text = GenericUtils.convertMillisecondsToDateString(company().dateCreated),
                 textAlign = TextAlign.End,
                 fontWeight = FontWeight.Bold,
                 color = Color.White

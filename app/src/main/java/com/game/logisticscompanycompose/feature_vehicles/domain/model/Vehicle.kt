@@ -9,7 +9,7 @@ open class Vehicle (
     open val vehicleType : String,
     var upgradeTotal : Int = 0,
     val companyId: Int = -1,
-    val currentlyUsedInContract: Boolean = false,
+    var currentlyUsedInContract: Boolean = false,
     )
 
 

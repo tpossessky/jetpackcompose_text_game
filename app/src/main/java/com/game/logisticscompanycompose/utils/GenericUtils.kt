@@ -5,11 +5,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.graphics.lerp
+import com.game.logisticscompanycompose.feature_vehicles.domain.model.Vehicle
 import java.math.BigInteger
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
+import kotlin.math.roundToInt
 
 object GenericUtils {
 
@@ -31,9 +33,13 @@ object GenericUtils {
         startColor: Color,
         endColor: Color
     ): List<Color> {
-        return List(numColors) { index ->
-            val fraction = index.toFloat() / (numColors - 1).toFloat()
-            lerp(startColor, endColor, fraction)
+        return if(numColors > 1) {
+            List(numColors) { index ->
+                val fraction = index.toFloat() / (numColors - 1).toFloat()
+                lerp(startColor, endColor, fraction)
+            }
+        }else {
+            listOf(startColor)
         }
     }
 
@@ -98,5 +104,31 @@ object GenericUtils {
             tileMode = TileMode.Clamp
         )
     }
-}
 
+    fun calculateVehicleCapacity(vehicle : Vehicle) : Int {
+
+        val type = vehicle.vehicleType
+        val upgradeLevel = vehicle.upgradeTotal
+        var capacity = 0
+
+        when(type) {
+            VehicleType.PICKUP_TRUCK -> {
+                capacity = (0.1 * upgradeLevel).roundToInt().plus(200)
+            }
+            VehicleType.VAN -> {
+                capacity = (0.1 * upgradeLevel).roundToInt().plus(400)
+            }
+            VehicleType.DELUXE_VAN -> {
+                capacity = (0.1 * upgradeLevel).roundToInt().plus(600)
+            }
+            VehicleType.TRUCK -> {
+                capacity = (0.1 * upgradeLevel).roundToInt().plus(800)
+            }
+        }
+        return capacity
+    }
+
+
+
+
+}

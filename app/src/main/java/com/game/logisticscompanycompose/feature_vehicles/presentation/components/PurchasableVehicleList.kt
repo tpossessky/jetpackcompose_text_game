@@ -19,7 +19,7 @@ fun PurchasableVehicleList(
     LazyColumn(modifier = modifier
         .fillMaxSize()
     ) {
-        itemsIndexed(viewModel.vehicleList) { index, vehicle ->
+        itemsIndexed(viewModel.vehicleList) { _, vehicle ->
             VehicleItem(vehicle = vehicle){
                 if(it is VehicleClickEvent.VehicleClickBuy)
                     viewModel.purchaseVehicle(it.vehicle, company.id)

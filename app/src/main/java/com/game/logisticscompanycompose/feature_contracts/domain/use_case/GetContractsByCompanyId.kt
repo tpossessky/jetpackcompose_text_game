@@ -10,9 +10,12 @@ class GetContractsByCompanyId(
 ) {
 
     operator fun invoke(id: Int) : Flow<List<Contract>> {
-        return repository.getAllContractsByCompanyId(id).map { contract ->
+        val x = repository.getAllContractsByCompanyId(id).map { contract ->
             contract.sortedBy { it.weeksRemaining }
         }
+
+
+        return x
     }
 
 }

@@ -62,7 +62,7 @@ fun LoadGameList(
         .padding(paddingValues)
     ){
         itemsIndexed(state.games){index, game ->
-            LoadGameItem(company = game, color = state.colors[index]) {
+            LoadGameItem(company = { game }, color = state.colors[index]) {
                     event ->
                 when (event) {
                     is GameManagementClickEvent.GameManagementClickDelete -> {

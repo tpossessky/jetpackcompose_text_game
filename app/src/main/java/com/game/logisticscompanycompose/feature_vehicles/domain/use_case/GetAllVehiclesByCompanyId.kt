@@ -9,9 +9,17 @@ class GetAllVehiclesByCompanyId(
     private val repository: VehicleRepository
 ) {
 
-    operator fun invoke(id: Int) : Flow<List<Vehicle>> {
-        return repository.getAllVehiclesByCompanyId(id).map { vehicles ->
-            vehicles.sortedBy { it.vehicleType }
+    operator fun invoke(id: Int, excludeCurrentlyUsed: Boolean = false): Flow<List<Vehicle>> {
+
+        return if (excludeCurrentlyUsed) {
+            repository.getAllVehiclesByCompanyId(id).map { vehicles ->
+                vehicles.filter { !it.currentlyUsedInContract }.sortedBy { it.vehicleType }
+            }
+            //handles getting vehicles NOT currently used in contract
+        } else {
+            repository.getAllVehiclesByCompanyId(id).map { vehicles ->
+                vehicles.sortedBy { it.vehicleType }
+            }
         }
     }
 
