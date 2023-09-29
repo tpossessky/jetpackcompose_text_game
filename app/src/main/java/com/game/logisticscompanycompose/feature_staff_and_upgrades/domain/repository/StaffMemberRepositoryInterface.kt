@@ -9,4 +9,5 @@ interface StaffMemberRepositoryInterface {
     suspend fun addStaffMember(staffMember: StaffMember): Long
     suspend fun removeStaffMember(staffMember: StaffMember)
     suspend fun getAllStaffMembersByCompanyID(companyID: Int): Flow<List<StaffMember>>
+    suspend fun getStaffMemberByJobCodeAndCompanyID(companyID: Int, jobCode: Int): Flow<StaffMember>
 }

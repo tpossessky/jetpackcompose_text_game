@@ -20,4 +20,7 @@ interface StaffMemberDao {
     @Query("SELECT * FROM StaffMember WHERE companyId = :companyId")
     fun getAllStaffByCompanyID(companyId: Int) : Flow<List<StaffMember>>
 
+    @Query("SELECT * FROM StaffMember WHERE companyId = :companyId AND jobCode = :jobCode")
+    fun getStaffMemberByJobCodeAndCompanyID(companyId: Int, jobCode: Int): Flow<StaffMember>
+
 }
