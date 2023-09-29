@@ -1,9 +1,7 @@
 package com.game.logisticscompanycompose.feature_game_management.di
 
-import android.app.Application
-import androidx.room.Room
+import com.game.logisticscompanycompose.common.data.data_source.LogisticsCompanyDatabase
 import com.game.logisticscompanycompose.feature_game_management.data.data_source.LogisticsCompanyDao
-import com.game.logisticscompanycompose.feature_game_management.data.data_source.LogisticsCompanyDatabase
 import com.game.logisticscompanycompose.feature_game_management.data.repository.LogisticsCompanyRepository
 import com.game.logisticscompanycompose.feature_game_management.domain.repository.LogisticsCompanyRepositoryInterface
 import com.game.logisticscompanycompose.feature_game_management.domain.use_case.AddCash
@@ -20,28 +18,12 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
-import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object GameManagementModule {
 
-    @Provides
-    @Singleton
-    fun provideLogisticsCompanyDatabase(
-        app: Application,
-        callback: LogisticsCompanyDatabase.Callback
-    ): LogisticsCompanyDatabase {
-        return Room.databaseBuilder(
-            app,
-            LogisticsCompanyDatabase::class.java,
-            LogisticsCompanyDatabase.DATABASE_NAME
-        )
-            .addCallback(callback).build()
-    }
 
     @Provides
     @Singleton
@@ -75,19 +57,5 @@ object GameManagementModule {
             observeCompanyUseCase = ObserveCompanyUseCase(repository)
         )
     }
-
-
-    //creates coroutine scope that lives as long as the application
-    //makes sure if one task fails, children are not cancelled
-    @ApplicationScope
-    @Provides
-    @Singleton
-    fun provideApplicationScope() = CoroutineScope(SupervisorJob())
-
-    //can define multiple coroutine scopes
-    @Retention(AnnotationRetention.RUNTIME)
-    @Qualifier
-    annotation class ApplicationScope
-
 
 }
