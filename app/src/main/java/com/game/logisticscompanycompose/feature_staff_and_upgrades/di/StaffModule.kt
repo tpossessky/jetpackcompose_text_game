@@ -1,10 +1,7 @@
 package com.game.logisticscompanycompose.feature_staff_and_upgrades.di
 
-import android.app.Application
-import androidx.room.Room
-import com.game.logisticscompanycompose.feature_game_management.data.data_source.LogisticsCompanyDao
-import com.game.logisticscompanycompose.feature_game_management.data.data_source.LogisticsCompanyDatabase
-import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.data_source.StaffMemberDatabase
+import com.game.logisticscompanycompose.common.data.data_source.LogisticsCompanyDatabase
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.data_source.StaffMemberDao
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.repository.StaffMemberRepository
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.repository.StaffMemberRepositoryInterface
 import dagger.Module
@@ -17,29 +14,17 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object StaffModule {
 
+
+
     @Provides
     @Singleton
-    fun provideStaffDatabase(
-        app: Application,
-        callback: StaffMemberDatabase.Callback
-    ): StaffMemberDatabase {
-        return Room.databaseBuilder(
-            app,
-            StaffMemberDatabase::class.java,
-            StaffMemberDatabase.DATABASE_NAME
-        )
-            .addCallback(callback).build()
+    fun provideStaffMemberDao(database: LogisticsCompanyDatabase): StaffMemberDao {
+        return database.staffMemberDao
     }
 
     @Provides
     @Singleton
-    fun provideStaffMemberDao(database: LogisticsCompanyDatabase): LogisticsCompanyDao {
-        return database.logCompDao
-    }
-
-    @Provides
-    @Singleton
-    fun provideStaffMemberRepository(db: StaffMemberDatabase)
+    fun provideStaffMemberRepository(db: LogisticsCompanyDatabase)
             : StaffMemberRepositoryInterface {
         return StaffMemberRepository(db.staffMemberDao)
     }

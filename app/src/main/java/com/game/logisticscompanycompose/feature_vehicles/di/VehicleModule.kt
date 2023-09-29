@@ -1,9 +1,7 @@
 package com.game.logisticscompanycompose.feature_vehicles.di
 
-import android.app.Application
-import androidx.room.Room
+import com.game.logisticscompanycompose.common.data.data_source.LogisticsCompanyDatabase
 import com.game.logisticscompanycompose.feature_vehicles.data.data_source.VehicleDao
-import com.game.logisticscompanycompose.feature_vehicles.data.data_source.VehicleDatabase
 import com.game.logisticscompanycompose.feature_vehicles.data.repository.VehicleRepository
 import com.game.logisticscompanycompose.feature_vehicles.domain.model.PurchasableVehiclesCollection
 import com.game.logisticscompanycompose.feature_vehicles.domain.repository.VehicleRepositoryInterface
@@ -24,26 +22,14 @@ object VehicleModule {
 
     @Provides
     @Singleton
-    fun provideVehicleDatabase(app: Application,
-                               callback: VehicleDatabase.Callback): VehicleDatabase {
-        return Room.databaseBuilder(
-            app,
-            VehicleDatabase::class.java,
-            VehicleDatabase.DATABASE_NAME
-        ).addCallback(callback).build()
-    }
-
-
-    @Provides
-    @Singleton
-    fun provideVehicleDao(database: VehicleDatabase): VehicleDao {
+    fun provideVehicleDao(database: LogisticsCompanyDatabase): VehicleDao {
         return database.vehicleDao
     }
 
 
     @Provides
     @Singleton
-    fun provideVehicleRepository(db: VehicleDatabase)
+    fun provideVehicleRepository(db: LogisticsCompanyDatabase)
             : VehicleRepositoryInterface {
         return VehicleRepository(db.vehicleDao)
     }
