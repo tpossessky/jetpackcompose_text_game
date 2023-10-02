@@ -19,13 +19,10 @@ class HireStaff(
         val currentStaff = currentStaffFlow.singleOrNull()
 
         if (currentStaff != null) {
-            // Handle the case when there is existing staff with the same job code
-            // For example, you might want to update or notify about it.
+            repository.removeStaffMember(currentStaff)
+            repository.addStaffMember(newStaff)
         } else {
-            // Handle the case when there is no existing staff with the same job code
-            // You can proceed with hiring the new staff.
+            repository.addStaffMember(newStaff)
         }
-
-
     }
 }

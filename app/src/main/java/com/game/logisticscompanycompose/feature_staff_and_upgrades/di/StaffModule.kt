@@ -4,6 +4,10 @@ import com.game.logisticscompanycompose.common.data.data_source.LogisticsCompany
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.data_source.StaffMemberDao
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.repository.StaffMemberRepository
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.repository.StaffMemberRepositoryInterface
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.FireStaff
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.GetAllStaff
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.HireStaff
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.StaffUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,13 +18,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object StaffModule {
 
-
-
     @Provides
     @Singleton
     fun provideStaffMemberDao(database: LogisticsCompanyDatabase): StaffMemberDao {
         return database.staffMemberDao
     }
+
 
     @Provides
     @Singleton
@@ -29,6 +32,19 @@ object StaffModule {
         return StaffMemberRepository(db.staffMemberDao)
     }
 
+
+    @Provides
+    @Singleton
+    fun provideStaffUseCase(
+        repository: StaffMemberRepository
+    ) : StaffUseCases {
+
+        return StaffUseCases(
+            hireStaff = HireStaff(repository),
+            fireStaff = FireStaff(repository),
+            getAllStaff = GetAllStaff(repository)
+        )
+    }
 
 
 }

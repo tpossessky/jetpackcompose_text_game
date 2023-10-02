@@ -10,13 +10,16 @@ class StaffMemberRepository @Inject constructor(
     private val dao: StaffMemberDao
 ) : StaffMemberRepositoryInterface {
 
+
     override suspend fun addStaffMember(staffMember: StaffMember): Long {
         return dao.addStaffMember(staffMember = staffMember)
     }
 
+
     override suspend fun removeStaffMember(staffMember: StaffMember) {
         dao.removeStaffMember(staffMember = staffMember)
     }
+
 
     override suspend fun getAllStaffMembersByCompanyID(companyID: Int): Flow<List<StaffMember>> {
         return dao.getAllStaffByCompanyID(companyId = companyID)
@@ -28,4 +31,6 @@ class StaffMemberRepository @Inject constructor(
     ): Flow<StaffMember> {
         return dao.getStaffMemberByJobCodeAndCompanyID(companyId = companyID, jobCode = jobCode)
     }
+
+
 }

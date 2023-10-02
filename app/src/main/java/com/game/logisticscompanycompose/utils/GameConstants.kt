@@ -29,6 +29,16 @@ object GameConstants {
         ChiefFinancialOfficer(3),
 
     }
+
+    enum class UPGRADENAME (val upgradeName : String){
+
+        AutomatedSorting("Automated Sorting"),
+        PackageTracking("Package Tracking"),
+        OptimizedRoutes("Optimized Routes"),
+        RoboticSorting("Robotic Sorting"),
+        QuantumPackageTransportation("Quantum Package Transportation")
+
+    }
 }
 
 object VehicleType {
