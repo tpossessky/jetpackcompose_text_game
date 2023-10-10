@@ -30,16 +30,30 @@ object GameConstants {
 
     }
 
-    enum class UPGRADENAME (val upgradeName : String){
 
-        AutomatedSorting("Automated Sorting"),
-        PackageTracking("Package Tracking"),
-        OptimizedRoutes("Optimized Routes"),
-        RoboticSorting("Robotic Sorting"),
-        QuantumPackageTransportation("Quantum Package Transportation")
+
+
+
+
+
+
+
+    enum class UPGRADECODE(val code: Int){
+        Speed(0),
+        Pay(1),
+    }
+
+    enum class UPGRADE (val upgradeName : String, val code : UPGRADECODE, val percentIncrease: Double){
+        AutomatedSorting("Automated Sorting", UPGRADECODE.Speed, 0.1),
+        PackageTracking("Package Tracking", UPGRADECODE.Pay, 0.1),
+        OptimizedRoutes("Optimized Routes", UPGRADECODE.Speed, 0.1),
+        RoboticSorting("Robotic Sorting", UPGRADECODE.Speed, 0.1),
+        QuantumPackageTransportation("Quantum Package Transportation", UPGRADECODE.Speed, 0.1)
 
     }
 }
+
+
 
 object VehicleType {
     const val VAN = "Van"

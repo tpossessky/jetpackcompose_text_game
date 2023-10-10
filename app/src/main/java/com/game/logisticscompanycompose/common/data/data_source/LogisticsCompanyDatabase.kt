@@ -41,6 +41,7 @@ abstract class LogisticsCompanyDatabase : RoomDatabase(){
         private val database: Provider<LogisticsCompanyDatabase>,
         @AppModule.ApplicationScope private val applicationScope: CoroutineScope
     ) : RoomDatabase.Callback() {
+//used for testing app
 //        override fun onCreate(db: SupportSQLiteDatabase) {
 //            super.onCreate(db)
 //            //db operations

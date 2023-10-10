@@ -18,5 +18,5 @@ data class Upgrade (
     val active : Boolean,
     val upgradeName : String,
     val effect : Int,
-    val percentBoost : Int
+    val percentBoost : Double
 )
