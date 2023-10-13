@@ -8,7 +8,9 @@ import com.game.logisticscompanycompose.feature_contracts.domain.model.Contract
 import com.game.logisticscompanycompose.feature_game_management.data.data_source.LogisticsCompanyDao
 import com.game.logisticscompanycompose.feature_game_management.domain.model.LogisticsCompany
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.data_source.StaffMemberDao
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.data_source.UpgradeDao
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.model.StaffMember
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.model.Upgrade
 import com.game.logisticscompanycompose.feature_vehicles.data.data_source.VehicleDao
 import com.game.logisticscompanycompose.feature_vehicles.domain.model.Vehicle
 import kotlinx.coroutines.CoroutineScope
@@ -21,7 +23,8 @@ import javax.inject.Provider
         LogisticsCompany::class,
         Vehicle::class,
         Contract::class,
-        StaffMember::class
+        StaffMember::class,
+        Upgrade::class
     ],
     version = 1
 )
@@ -31,6 +34,7 @@ abstract class LogisticsCompanyDatabase : RoomDatabase(){
     abstract val vehicleDao : VehicleDao
     abstract val contractDao : ContractDao
     abstract val staffMemberDao : StaffMemberDao
+    abstract val upgradeDao : UpgradeDao
 
     companion object {
         const val DATABASE_NAME = "logistics_comp_db"

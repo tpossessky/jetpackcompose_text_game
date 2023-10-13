@@ -21,7 +21,7 @@ class UpgradeRepository @Inject constructor(
     }
 
 
-    override suspend fun getAllUpgradesByCompanyId(companyId: Int) : Flow<List<Upgrade>> {
+    override fun getAllUpgradesByCompanyId(companyId: Int) : Flow<List<Upgrade>> {
         return upgradeDao.getAllUpgradesByCompanyId(companyId = companyId)
     }
 

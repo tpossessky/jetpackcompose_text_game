@@ -2,6 +2,7 @@ package com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.model
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.PrimaryKey
 import com.game.logisticscompanycompose.feature_game_management.domain.model.LogisticsCompany
 
 
@@ -14,6 +15,7 @@ import com.game.logisticscompanycompose.feature_game_management.domain.model.Log
     )
 ])
 data class Upgrade (
+    @PrimaryKey val id : Int = -1,
     val companyId : Int = -1,
     val active : Boolean,
     val upgradeName : String,

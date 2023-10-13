@@ -5,6 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface UpgradeRepositoryInterface {
     suspend fun updateUpgrade(upgrade: Upgrade)
-    suspend fun getAllUpgradesByCompanyId(companyId: Int): Flow<List<Upgrade>>
+    fun getAllUpgradesByCompanyId(companyId: Int): Flow<List<Upgrade>>
     suspend fun insert(upgrade: Upgrade)
 }

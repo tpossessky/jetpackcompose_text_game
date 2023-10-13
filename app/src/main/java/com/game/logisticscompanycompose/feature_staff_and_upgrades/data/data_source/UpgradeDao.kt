@@ -18,6 +18,6 @@ interface UpgradeDao {
 
 
     @Query("SELECT * FROM Upgrade WHERE companyId = :companyId")
-    suspend fun getAllUpgradesByCompanyId(companyId: Int) : Flow<List<Upgrade>>
+    fun getAllUpgradesByCompanyId(companyId: Int) : Flow<List<Upgrade>>
 
 }

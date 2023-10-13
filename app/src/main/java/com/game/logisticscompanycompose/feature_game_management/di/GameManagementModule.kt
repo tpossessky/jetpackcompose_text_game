@@ -1,5 +1,6 @@
 package com.game.logisticscompanycompose.feature_game_management.di
 
+import android.content.Context
 import com.game.logisticscompanycompose.common.data.data_source.LogisticsCompanyDatabase
 import com.game.logisticscompanycompose.feature_game_management.data.data_source.LogisticsCompanyDao
 import com.game.logisticscompanycompose.feature_game_management.data.repository.LogisticsCompanyRepository
@@ -13,10 +14,13 @@ import com.game.logisticscompanycompose.feature_game_management.domain.use_case.
 import com.game.logisticscompanycompose.feature_game_management.domain.use_case.ObserveCompanyUseCase
 import com.game.logisticscompanycompose.feature_game_management.domain.use_case.SubtractCash
 import com.game.logisticscompanycompose.feature_game_management.domain.use_case.UpdateCompany
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.repository.UpgradeRepository
 import com.game.logisticscompanycompose.utils.resources.ResourceManager
+import com.game.logisticscompanycompose.utils.resources.ResourceManagerInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -38,11 +42,18 @@ object GameManagementModule {
         return LogisticsCompanyRepository(db.logCompDao)
     }
 
+    @Provides
+    @Singleton
+    fun provideResourceManager(@ApplicationContext context: Context): ResourceManagerInterface {
+        return ResourceManager(context)
+    }
+
 
     @Provides
     @Singleton
     fun provideGameManagementUseCase(
         repository: LogisticsCompanyRepository,
+        upgradeRep : UpgradeRepository,
         resourceManager: ResourceManager
     ): GameManagementUseCases {
 
@@ -50,7 +61,7 @@ object GameManagementModule {
             getCompany = GetCompany(repository),
             getAllCompanies = GetAllCompanies(repository),
             deleteCompany = DeleteCompany(repository),
-            addCompany = AddCompany(repository, resourceManager),
+            addCompany = AddCompany(repository = repository, resourceManager = resourceManager, upgradeRepo = upgradeRep),
             updateCompany = UpdateCompany(repository),
             subtractCash = SubtractCash(repository),
             addCash = AddCash(repository),
