@@ -43,13 +43,14 @@ object GameConstants {
         Pay(1),
     }
 
+
+
     enum class UPGRADE (val upgradeName : String, val code : UPGRADECODE, val percentIncrease: Double){
         AutomatedSorting("Automated Sorting", UPGRADECODE.Speed, 0.1),
         PackageTracking("Package Tracking", UPGRADECODE.Pay, 0.1),
         OptimizedRoutes("Optimized Routes", UPGRADECODE.Speed, 0.1),
         RoboticSorting("Robotic Sorting", UPGRADECODE.Speed, 0.1),
         QuantumPackageTransportation("Quantum Package Transportation", UPGRADECODE.Speed, 0.1)
-
     }
 }
 

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.game.logisticscompanycompose.feature_game_management.domain.model.InvalidCompanyException
 import com.game.logisticscompanycompose.feature_game_management.domain.model.LogisticsCompany
 import com.game.logisticscompanycompose.feature_game_management.domain.use_case.GameManagementUseCases
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.UpgradeUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class StartScreenViewModel @Inject constructor(
-    private val useCases: GameManagementUseCases
+    private val useCases: GameManagementUseCases,
+    private val upgradeUseCases: UpgradeUseCases
 ): ViewModel(){
 
     val showCreateDialog = mutableStateOf(false)
@@ -33,6 +35,7 @@ class StartScreenViewModel @Inject constructor(
                 showCreateDialog.value = false
                 val id = useCases.addCompany(company).toInt()
                 _newCompanyId.emit(id)
+                upgradeUseCases.upgradeInitUseCase.invoke(id)
             } catch (e: InvalidCompanyException) {
                 _exception.value = e
             }

@@ -7,4 +7,5 @@ interface UpgradeRepositoryInterface {
     suspend fun updateUpgrade(upgrade: Upgrade)
     fun getAllUpgradesByCompanyId(companyId: Int): Flow<List<Upgrade>>
     suspend fun insert(upgrade: Upgrade)
+    suspend fun insertAll(upgrades: List<Upgrade>)
 }

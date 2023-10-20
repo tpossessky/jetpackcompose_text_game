@@ -15,6 +15,11 @@ class UpgradeRepository @Inject constructor(
         upgradeDao.insert(upgrade)
     }
 
+    override suspend fun insertAll(upgrades: List<Upgrade>) {
+        upgradeDao.insertAll(upgrades)
+
+    }
+
 
     override suspend fun updateUpgrade(upgrade: Upgrade) {
         upgradeDao.update(upgrade)

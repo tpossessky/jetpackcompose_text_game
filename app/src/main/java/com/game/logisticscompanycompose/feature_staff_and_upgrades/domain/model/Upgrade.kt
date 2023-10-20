@@ -5,7 +5,6 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.game.logisticscompanycompose.feature_game_management.domain.model.LogisticsCompany
 
-
 @Entity(foreignKeys = [
     ForeignKey(
         entity = LogisticsCompany::class,
@@ -15,7 +14,7 @@ import com.game.logisticscompanycompose.feature_game_management.domain.model.Log
     )
 ])
 data class Upgrade (
-    @PrimaryKey val id : Int = -1,
+    @PrimaryKey(autoGenerate = true) val id : Int = 0,
     val companyId : Int = -1,
     val active : Boolean,
     val upgradeName : String,

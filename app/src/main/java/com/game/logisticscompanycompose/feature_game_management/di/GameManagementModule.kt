@@ -61,7 +61,7 @@ object GameManagementModule {
             getCompany = GetCompany(repository),
             getAllCompanies = GetAllCompanies(repository),
             deleteCompany = DeleteCompany(repository),
-            addCompany = AddCompany(repository = repository, resourceManager = resourceManager, upgradeRepo = upgradeRep),
+            addCompany = AddCompany(repository = repository, resourceManager = resourceManager),
             updateCompany = UpdateCompany(repository),
             subtractCash = SubtractCash(repository),
             addCash = AddCash(repository),
