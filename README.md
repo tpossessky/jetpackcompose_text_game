@@ -1,4 +1,4 @@
-# logisticscompanycompose
+# Jetpack Compose Text-Based Game
 
 An unfinished but functional Android game created entirely with Jetpack Compose. The game takes inspiration from other text-based mobile games and puts the player in the role of operating and managing a business.
 
