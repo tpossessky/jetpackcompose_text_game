@@ -42,10 +42,11 @@ Each aspect of the game is broken down into a feature and has a file structure l
  ┃ ┣ 📂screens\
  ┃ ┣ 📂view_models\
 
-###Data Storage
+### Data Storage
 
 Data is stored utilizing RoomDB and currently is the single holder of data. As a result, the repository is not really needed but I wanted to keep it in to add flexibility of adding other data sources later. 
 
 Everything stored in the DB is linked to the individual game by the game's ID. For ease of access, a global game object contains a Flow<Game> that is set when a user loads a game.
 
+UserSettings has not yet been implemented, but the plan is to add a SharedPreferences/DataStore interaction class that will handle storing those. 
 
