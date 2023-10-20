@@ -8,7 +8,7 @@ This README has been written in a way to add clarity in the more generic case ra
 This project was created to work on skills in Android, Compose, Room, Clean Architecture, MVVM, and Dagger Hilt. The structure of the game itself is more just an exercise in good practice Android development and being a simulation game, the code is more similar to that of a standard business application than a game.  
 
 ```mermaid
-graph LR
+graph LR;
 A[Create Game] --> B[Home]
 B --> D{Gameplay}
 D -->N(Home Screen)
@@ -23,7 +23,7 @@ D --> K(Staff/Upgrades)
 K --> L(Hire/Fire Staff)
 K --> M(Upgrade Business)
 D --> P(Settings) -->Q(App Settings)
-
+```
 ### Feature Structure
 
 Each aspect of the game is broken down into a feature and has a file structure like the one shown here:
