@@ -1,6 +1,8 @@
 # Jetpack Compose Text-Based Game
 
-An unfinished but functional Android game created entirely with Jetpack Compose. The game takes inspiration from other text-based mobile games and puts the player in the role of operating and managing a business.
+An Android game created entirely with Jetpack Compose.
+
+The game takes inspiration from other text-based mobile games and puts the player in the role of operating and managing a business.
 This README has been written in a way to add clarity in the more generic case rather than specifically for this repository. (And also so I can understand the code I wrote months ago)   
 
 ## Architecture
