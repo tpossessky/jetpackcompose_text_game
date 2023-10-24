@@ -4,8 +4,10 @@ import com.game.logisticscompanycompose.common.data.data_source.LogisticsCompany
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.data_source.UpgradeDao
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.repository.UpgradeRepository
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.repository.UpgradeRepositoryInterface
-import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.UpgradeInitUseCase
-import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.UpgradeUseCases
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.upgrades.GetUpgradesByCompanyId
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.upgrades.UpdateUpgrade
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.upgrades.UpgradeInitUseCase
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.upgrades.UpgradeUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,9 +35,11 @@ object UpgradeModule {
 
     @Provides
     @Singleton
-    fun provideUpgradeUseCases(repository: UpgradeRepository) : UpgradeUseCases{
+    fun provideUpgradeUseCases(repository: UpgradeRepository) : UpgradeUseCases {
         return UpgradeUseCases(
-            upgradeInitUseCase = UpgradeInitUseCase(repository)
+            upgradeInitUseCase = UpgradeInitUseCase(repository),
+            getAllUpgradesByCompanyId = GetUpgradesByCompanyId(repository),
+            updateUpgrade = UpdateUpgrade(repository)
         )
     }
 

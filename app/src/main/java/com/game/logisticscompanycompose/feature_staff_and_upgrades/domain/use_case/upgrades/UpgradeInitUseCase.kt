@@ -1,4 +1,4 @@
-package com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case
+package com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.upgrades
 
 import android.util.Log
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.repository.UpgradeRepository

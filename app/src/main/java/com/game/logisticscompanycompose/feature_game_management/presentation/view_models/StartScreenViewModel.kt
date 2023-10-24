@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.game.logisticscompanycompose.feature_game_management.domain.model.InvalidCompanyException
 import com.game.logisticscompanycompose.feature_game_management.domain.model.LogisticsCompany
 import com.game.logisticscompanycompose.feature_game_management.domain.use_case.GameManagementUseCases
-import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.UpgradeUseCases
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.upgrades.UpgradeUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

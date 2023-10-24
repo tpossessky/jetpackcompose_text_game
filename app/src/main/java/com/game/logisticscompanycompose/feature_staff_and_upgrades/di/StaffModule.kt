@@ -4,10 +4,10 @@ import com.game.logisticscompanycompose.common.data.data_source.LogisticsCompany
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.data_source.StaffMemberDao
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.data.repository.StaffMemberRepository
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.repository.StaffMemberRepositoryInterface
-import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.FireStaff
-import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.GetAllStaff
-import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.HireStaff
-import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.StaffUseCases
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.staff.FireStaff
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.staff.GetAllStaff
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.staff.HireStaff
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.use_case.staff.StaffUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
