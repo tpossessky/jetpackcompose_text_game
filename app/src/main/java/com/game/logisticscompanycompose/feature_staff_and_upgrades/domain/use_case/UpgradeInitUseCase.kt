@@ -20,7 +20,9 @@ class UpgradeInitUseCase (
                     active = false,
                     upgradeName = upgrade.upgradeName,
                     effect = upgrade.code.code,
-                    percentBoost = upgrade.percentIncrease
+                    percentBoost = upgrade.percentIncrease,
+                    levelReq = upgrade.levelReq,
+                    purchasePrice = upgrade.purchasePrice
                 )
             )
         }

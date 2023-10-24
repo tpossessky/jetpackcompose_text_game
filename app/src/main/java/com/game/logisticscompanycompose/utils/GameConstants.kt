@@ -31,26 +31,24 @@ object GameConstants {
     }
 
 
-
-
-
-
-
-
-
     enum class UPGRADECODE(val code: Int){
         Speed(0),
         Pay(1),
     }
 
 
-
-    enum class UPGRADE (val upgradeName : String, val code : UPGRADECODE, val percentIncrease: Double){
-        AutomatedSorting("Automated Sorting", UPGRADECODE.Speed, 0.1),
-        PackageTracking("Package Tracking", UPGRADECODE.Pay, 0.1),
-        OptimizedRoutes("Optimized Routes", UPGRADECODE.Speed, 0.1),
-        RoboticSorting("Robotic Sorting", UPGRADECODE.Speed, 0.1),
-        QuantumPackageTransportation("Quantum Package Transportation", UPGRADECODE.Speed, 0.1)
+    enum class UPGRADE (
+        val upgradeName : String,
+        val code : UPGRADECODE,
+        val percentIncrease: Double,
+        val levelReq : Int,
+        val purchasePrice : Int
+    ){
+        AutomatedSorting("Automated Sorting", UPGRADECODE.Speed, 0.1, 1, 1000),
+        PackageTracking("Package Tracking", UPGRADECODE.Pay, 0.1, 2, 2000),
+        OptimizedRoutes("Optimized Routes", UPGRADECODE.Speed, 0.1, 3, 3000),
+        RoboticSorting("Robotic Sorting", UPGRADECODE.Pay, 0.1, 4, 4000),
+        QuantumPackageTransportation("Quantum Package Transportation", UPGRADECODE.Speed, 0.1, 5, 5000)
     }
 }
 

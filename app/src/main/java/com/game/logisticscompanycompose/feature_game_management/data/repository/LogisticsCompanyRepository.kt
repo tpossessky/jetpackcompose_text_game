@@ -1,6 +1,5 @@
 package com.game.logisticscompanycompose.feature_game_management.data.repository
 
-import android.util.Log
 import com.game.logisticscompanycompose.feature_game_management.data.data_source.LogisticsCompanyDao
 import com.game.logisticscompanycompose.feature_game_management.domain.model.LogisticsCompany
 import com.game.logisticscompanycompose.feature_game_management.domain.repository.LogisticsCompanyRepositoryInterface
@@ -37,7 +36,6 @@ class LogisticsCompanyRepository @Inject constructor(
     }
 
     override suspend fun updateCash(id: Int, amt: String){
-        Log.wtf("REPO", "UPDATING COMPANY CASH WITH ID $id")
         dao.updateCash(id= id, cash = amt)
     }
 }
