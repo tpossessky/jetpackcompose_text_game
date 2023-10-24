@@ -52,3 +52,10 @@ Everything stored in the DB is linked to the individual game by the game's ID. F
 
 UserSettings has not yet been implemented, but the plan is to add a SharedPreferences/DataStore interaction class that will handle storing those. 
 
+### Current Status
+
+The following features are "complete" as of now, however once a full MVP is finished I plan to go back and add assets, improve the UI, and play with values to make the game fun
+* Vehicles
+* Contracts
+* Staff and Upgrades
+
