@@ -26,7 +26,7 @@ fun CreateGameDialog(
     errorType: InvalidCompanyException?
 ) {
     val options = GameConstants.createCompanyStartingCashOptions
-
+//TODO: Extract String Resource
     AlertDialog(onDismissRequest = onDismissRequest, title = {
         Text(text = "Create New Game", fontWeight = FontWeight.Black)
     }, text = {

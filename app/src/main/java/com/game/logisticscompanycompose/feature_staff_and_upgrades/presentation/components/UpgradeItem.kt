@@ -58,6 +58,7 @@ fun UpgradeItem(
             }
             Spacer(modifier = Modifier.height(8.dp))
             Row {
+                //TODO: Extract String Resource
                 Text(
                     text = "+10% profit per week",
                     style = TextStyle(
@@ -80,6 +81,7 @@ fun UpgradeItem(
                         containerColor = Color.Green
                     )
                 ) {
+                    //TODO: Extract String Resource
                     Text(
                         text = "$5000",
                         style = TextStyle(

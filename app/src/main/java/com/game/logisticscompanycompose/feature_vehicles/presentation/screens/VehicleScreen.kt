@@ -23,6 +23,7 @@ fun VehicleScreen(
 ) {
 
     var tabIndex by remember { mutableStateOf(0) }
+    //TODO: Extract String resource
     val tabs = listOf("Buy Vehicle", "My Vehicles")
     Column(modifier = modifier) {
         TabRow(selectedTabIndex = tabIndex) {

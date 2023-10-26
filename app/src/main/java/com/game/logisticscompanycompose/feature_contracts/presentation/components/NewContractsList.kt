@@ -1,7 +1,6 @@
 package com.game.logisticscompanycompose.feature_contracts.presentation.components
 
 
-import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -25,7 +24,6 @@ fun NewContractsList(
             ContractItem(contract = contract){
                 if(it is ContractClickEvent.ContractClickAccept){
                     viewModel.onClickAccept(it.contract)
-                    Log.wtf("", "NewContractsList: clicky")
                     viewModel.showCreateDialog.value = true
                 }
             }

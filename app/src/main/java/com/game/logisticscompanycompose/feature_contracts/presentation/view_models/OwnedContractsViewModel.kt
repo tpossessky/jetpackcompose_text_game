@@ -1,6 +1,5 @@
 package com.game.logisticscompanycompose.feature_contracts.presentation.view_models
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -32,7 +31,6 @@ class OwnedContractsViewModel @Inject constructor(
 
 
     init {
-        Log.wtf("OwnedContractsViewModel", "Init", )
         viewModelScope.launch {
             val it = GlobalCompany.getCurrentCompany().first()
             getContracts(it!!)

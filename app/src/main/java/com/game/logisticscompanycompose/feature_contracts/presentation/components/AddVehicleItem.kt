@@ -23,7 +23,7 @@ fun AddVehicleItem(modifier: Modifier = Modifier,
                    vehicle: Vehicle,
                    isSelected : Boolean,
                    onClick: (Vehicle) -> Unit) {
-
+//TODO: Extract String Resource
     val vehicleCapacity = GenericUtils.calculateVehicleCapacity(vehicle)
     Spacer(modifier = Modifier.height(4.dp))
     Card(modifier = modifier.padding(4.dp)) {

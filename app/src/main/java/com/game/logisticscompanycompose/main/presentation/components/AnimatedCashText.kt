@@ -49,8 +49,8 @@ fun AnimatedCashText(count: BigInteger) {
                     slideInVertically {it} with slideOutVertically { -it }
                 }
 
-            ) {char ->
-                Text(text = GenericUtils.formatCash(char.toString()), softWrap = false)
+            ) {scopedChar ->
+                Text(text = GenericUtils.formatCash(scopedChar.toString()), softWrap = false)
             }
         }
     }

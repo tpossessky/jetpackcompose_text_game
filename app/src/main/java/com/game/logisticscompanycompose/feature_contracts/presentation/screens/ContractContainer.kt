@@ -19,6 +19,7 @@ import com.game.logisticscompanycompose.feature_game_management.domain.model.Log
 fun ContractContainer(modifier: Modifier = Modifier, company: LogisticsCompany) {
 
     var tabIndex by remember { mutableStateOf(0) }
+    //TODO: Extract String Resource
     val tabs = listOf("New Contracts", "My Contracts")
 
     Column(modifier = modifier.fillMaxSize()) {

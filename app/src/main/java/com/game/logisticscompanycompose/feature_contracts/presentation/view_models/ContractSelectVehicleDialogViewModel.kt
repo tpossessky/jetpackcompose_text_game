@@ -1,6 +1,5 @@
 package com.game.logisticscompanycompose.feature_contracts.presentation.view_models
 
-import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -26,7 +25,6 @@ class ContractSelectVehicleDialogViewModel @Inject constructor(
 
     fun getVehicles() {
         if(availableVehicles.isEmpty()) {
-            Log.wtf("ContractSelectVehicleDialogViewModel", "getVehicles called ", )
             getCurrentCompany { company ->
                 finishedInit.value = false
                 vehicleUseCases.getAllVehiclesByCompanyId(id = company.id, excludeCurrentlyUsed = true)

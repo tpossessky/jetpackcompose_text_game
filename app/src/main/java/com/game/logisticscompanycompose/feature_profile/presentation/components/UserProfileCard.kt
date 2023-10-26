@@ -58,6 +58,7 @@ fun UserProfileCard() {
                     contentDescription = "",
                     tint = Color.White
                 )
+                //TODO: Extract String Resource
                 Text(
                     text = "My Profile",
                     color = Color.White,

@@ -73,7 +73,6 @@ class OwnedVehiclesListViewModel @Inject constructor(
     //TODO: Add logic to do something with vehicle upgrades
     fun upgradeVehicle(vehicle: Vehicle) {
         viewModelScope.launch {
-            val total = vehicle.upgradeTotal
             vehicle.upgradeTotal += 1
 
             vehicleUseCases.updateVehicle(vehicle)

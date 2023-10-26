@@ -90,6 +90,7 @@ fun VehicleItem(
                             containerColor = Color.Green
                         )
                     ) {
+                        //TODO: Extract String Resource
                         Text(
                             text= "Buy",
                             style = TextStyle(
@@ -113,6 +114,7 @@ fun VehicleItem(
                 }
                 Spacer(modifier = Modifier.height(8.dp))
                 Row {
+                    //TODO: Extract String Resource
                     Text(
                         text= "Upgrades: ${vehicle.upgradeTotal}",
                         style = TextStyle(
@@ -147,6 +149,7 @@ fun VehicleItem(
                             containerColor = Color.Gray
                         )
                     ) {
+                        //TODO: Extract String Resource
                         Text(
                             text= "Sell",
                             style = TextStyle(
@@ -171,6 +174,7 @@ fun VehicleItem(
                             containerColor = Color.Gray
                         )
                     ) {
+                        //TODO: Extract String Resource
                         Text(
                             text= "Upgrade",
                             style = TextStyle(

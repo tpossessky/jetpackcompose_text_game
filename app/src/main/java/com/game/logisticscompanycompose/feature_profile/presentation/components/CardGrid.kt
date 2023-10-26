@@ -16,6 +16,7 @@ import com.game.logisticscompanycompose.R
 fun CardGrid(modifier: Modifier = Modifier) {
 
     //ALERT: MINIMUM HEIGHT FOR CARD TO LOOK GOOD IS 75dp
+    //TODO: Extract String Resource
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceEvenly

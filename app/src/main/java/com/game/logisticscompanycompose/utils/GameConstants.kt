@@ -36,7 +36,7 @@ object GameConstants {
         Pay(1),
     }
 
-
+    //TODO: Extract String Resource
     enum class UPGRADE (
         val upgradeName : String,
         val code : UPGRADECODE,
@@ -53,7 +53,7 @@ object GameConstants {
 }
 
 
-
+//TODO: Extract String Resource
 object VehicleType {
     const val VAN = "Van"
     const val DELUXE_VAN = "Deluxe Van"

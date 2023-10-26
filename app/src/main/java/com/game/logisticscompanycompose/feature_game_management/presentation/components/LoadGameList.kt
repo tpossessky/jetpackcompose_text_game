@@ -25,7 +25,7 @@ fun LoadGameList(
     val state = viewModel.state.value
     val scope = rememberCoroutineScope()
     val showDeleteDialog = viewModel.showDeleteDialog.value
-
+//TODO: Extract String Resource
     if (showDeleteDialog) {
         AlertDialog(
             onDismissRequest = {

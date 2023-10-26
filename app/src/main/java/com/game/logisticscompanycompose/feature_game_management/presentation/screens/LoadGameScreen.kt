@@ -25,21 +25,9 @@ fun LoadGameScreen(
     navController: NavController,
     onLoadGame : (Int) -> Unit
 ) {
-//    val showCreateDialog = viewModel.showCreateDialog.value
-//    val exceptionType = viewModel.exception.value
-
     Scaffold(
         modifier = modifier,
-//        floatingActionButtonPosition = FabPosition.End,
-//        floatingActionButton = {
-//            FloatingActionButton(
-//                onClick = {
-//                    viewModel.showCreateDialog.value = true
-//                }, containerColor = MaterialTheme.colorScheme.secondary, shape = CircleShape
-//            ) {
-//                Icon(imageVector = Icons.Default.Add, contentDescription = "Save")
-//            }
-//        },
+
         topBar = {
             TopAppBar(
                 title = { Text(text = "Load Game") },
@@ -51,16 +39,6 @@ fun LoadGameScreen(
             )
         }
     ) {
-//        if (showCreateDialog) {
-//            CreateGameDialog(
-//                onConfirm = { company ->
-//                    viewModel.onCreateCompany(company)
-//                },
-//                onDismissRequest = { viewModel.showCreateDialog.value = false },
-//                showDialog = true,
-//                errorType = exceptionType,
-//            )
-//        }
         LoadGameList(paddingValues = it){ id ->
             onLoadGame(id)
         }

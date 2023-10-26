@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NavigationContainerViewModel @Inject constructor(
-    val useCases: GameManagementUseCases
+    private val useCases: GameManagementUseCases
 ) : ViewModel() {
 
     private val _companyData: MutableStateFlow<LogisticsCompany?> = MutableStateFlow(null)

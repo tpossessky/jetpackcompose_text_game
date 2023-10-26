@@ -26,6 +26,7 @@ fun ContractItem(
     isOwned : Boolean = false,
     onClick : (ContractClickEvent) -> Unit = {}
 ) {
+    //TODO: Extract String Resource
     Card(
         modifier = modifier
             .fillMaxWidth()
