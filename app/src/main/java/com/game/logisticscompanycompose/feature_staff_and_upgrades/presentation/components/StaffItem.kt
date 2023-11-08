@@ -22,17 +22,16 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.model.Upgrade
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.domain.model.StaffMember
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.presentation.UpgradeAndStaffClickEvent
 import com.game.logisticscompanycompose.utils.anim.bounceClick
 
 @Composable
-fun UpgradeItem(
+fun StaffItem(
     modifier: Modifier = Modifier,
-    upgrade : Upgrade,
+    staffMember : StaffMember,
     onClick : (UpgradeAndStaffClickEvent) -> Unit = {} //optional onClick parameter
 ) {
-
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -50,7 +49,7 @@ fun UpgradeItem(
         ) {
             Row {
                 Text(
-                    text = upgrade.upgradeName,
+                    text = staffMember.staffMemberName,
                     style = TextStyle(
                         fontWeight = FontWeight.Black,
                         color = Color.White,
@@ -79,7 +78,7 @@ fun UpgradeItem(
                     modifier = Modifier.bounceClick(),
                     //purchase upgrade
                     onClick = {
-                        onClick(UpgradeAndStaffClickEvent.UpgradeClickBuy(upgrade))
+                        onClick(UpgradeAndStaffClickEvent.StaffClickHire(staffMember))
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color.Green
@@ -87,7 +86,7 @@ fun UpgradeItem(
                 ) {
                     //TODO: Extract String Resource
                     Text(
-                        text = "$5000",
+                        text = "$5000/week",
                         style = TextStyle(
                             fontWeight = FontWeight.Black,
                             color = Color.White
@@ -98,4 +97,3 @@ fun UpgradeItem(
         }
     }
 }
-

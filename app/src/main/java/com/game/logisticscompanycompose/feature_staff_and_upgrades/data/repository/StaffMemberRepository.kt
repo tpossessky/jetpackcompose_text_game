@@ -21,7 +21,7 @@ class StaffMemberRepository @Inject constructor(
     }
 
 
-    override suspend fun getAllStaffMembersByCompanyID(companyID: Int): Flow<List<StaffMember>> {
+    override fun getAllStaffMembersByCompanyID(companyID: Int): Flow<List<StaffMember>> {
         return dao.getAllStaffByCompanyID(companyId = companyID)
     }
 

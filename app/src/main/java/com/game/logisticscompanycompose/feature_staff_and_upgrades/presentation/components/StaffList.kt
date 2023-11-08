@@ -7,23 +7,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.game.logisticscompanycompose.feature_staff_and_upgrades.presentation.UpgradeAndStaffClickEvent
-import com.game.logisticscompanycompose.feature_staff_and_upgrades.presentation.view_models.UpgradeListViewModel
+import com.game.logisticscompanycompose.feature_staff_and_upgrades.presentation.view_models.StaffListViewModel
 
 @Composable
-fun UpgradeList(
+fun StaffList(
     modifier: Modifier = Modifier,
-    viewModel: UpgradeListViewModel = hiltViewModel(),
+    viewModel: StaffListViewModel = hiltViewModel(),
 ) {
     LazyColumn(modifier = modifier
         .fillMaxSize()
     ) {
-        itemsIndexed(viewModel.state.value.upgrades) { _, upgrade ->
-            UpgradeItem(upgrade = upgrade){
-                if(it is UpgradeAndStaffClickEvent.UpgradeClickBuy)
-                    viewModel.purchaseUpgrade(it.upgrade)
+        itemsIndexed(viewModel.state.value.staff) { _, staff ->
+            StaffItem(staffMember = staff){
+                if(it is UpgradeAndStaffClickEvent.StaffClickHire)
+                    viewModel.hireStaff(it.staffMember)
+                else if(it is UpgradeAndStaffClickEvent.StaffClickFire)
+                    viewModel.fireStaff(it.staffMember)
             }
         }
     }
-
-
 }
